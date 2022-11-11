@@ -5,15 +5,30 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from hashlib import md5
 
+# followers为关联表
+followers = db.Table('followers',
+                     db.Column('follower_id', db.Integer, db.ForeignKey('users.id')),
+                     db.Column('followed_id', db.Integer, db.ForeignKey('users.id'))
+                     )
+
 
 class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    posts = db.relationship('Posts', backref='author', lazy='dynamic')
+    posts = db.relationship('Posts', backref='author', lazy='dynamic')  # 一个用户有多个帖子
     about_me = db.Column(db.String(140))
     last_seen = db.Column(db.DateTime, default=datetime.utcnow())
+
+    followed = db.relationship(
+        'Users',
+        secondary=followers,
+        primaryjoin=(followers.c.follower_id == id),
+        secondaryjoin=(followers.c.followed_id == id),
+        backref=db.backref('followers', lazy='dynamic'),
+        lazy='dynamic'
+    )
 
     def __repr__(self):
         return '<Users {}>, Email {}, Password_Hash {}, Posts {}'.format(self.username, self.email,
@@ -29,12 +44,31 @@ class Users(UserMixin, db.Model):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
 
+    def follow(self, user):
+        if not self.is_following(user):
+            self.followed.append(user)
+
+    def unfollow(self, user):
+        if self.is_following(user):
+            self.followed.remove(user)
+
+    def is_following(self, user):
+        return self.followed.filter(followers.c.followed_id == user.id).count() > 0
+
+    # join 联合查询
+    def followed_posts(self):
+        followed = Posts.query.join(followers,
+                                    (followers.c.followed_id == Posts.user_id)).filter(
+            followers.c.follower_id == self.id)
+        own = Posts.query.filter_by(user_id=self.id)
+        return followed.union(own).order_by(Posts.timestamp.desc())
+
 
 class Posts(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))  # 一个帖子只有一个用户（作者）
 
     def __repr__(self):
         return '<Posts {}>'.format(self.body)
