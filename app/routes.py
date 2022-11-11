@@ -1,30 +1,35 @@
 # @Time: 2022/11/8 10:41
 from app import app, db
 from flask import render_template, redirect, flash, url_for, request
-from app.forms import LoginForm, RegistrationForm, EditProfileForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, PostForm
 from flask_login import current_user, login_user, logout_user, login_required
-from app.models import Users
+from app.models import Users, Posts
 from werkzeug.urls import url_parse
 from datetime import datetime
 
 
 # 路由
-@app.route('/')
-@app.route('/index')
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 @login_required
 # 视图函数
 def index():
-    posts = [  # 创建一个列表：帖子。里面元素是两个字典，每个字典里元素还是字典，分别作者、帖子内容。
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html', title='Home', posts=posts)
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Posts(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('index'))
+    posts = current_user.followed_posts().all()
+    return render_template('index.html', title='Home', posts=posts, form=form)
+
+
+@app.route('/explore')
+@login_required
+def explore():
+    posts = Posts.query.order_by(Posts.timestamp.desc()).all()
+    return render_template('index.html', title='Explore', posts=posts)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -133,4 +138,3 @@ def unfollow(username):
     db.session.commit()
     flash(f'You are not following {username}!')
     return redirect(url_for('user', username=username))
-

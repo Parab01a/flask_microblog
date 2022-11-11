@@ -1,29 +1,81 @@
-2022-11-10 20:32:18,200 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-10 20:32:18,861 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 10:59:21,911 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:01:21,952 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:01:56,000 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:02:41,057 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:02:58,438 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:27:21,033 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:27:26,490 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:29:35,161 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:30:46,920 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:33:51,641 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:34:12,535 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:34:42,816 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:54:56,005 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 11:54:56,680 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:13:55,550 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:13:56,167 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:20:50,128 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:22:17,688 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:22:18,314 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:22:38,041 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:22:38,660 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:25:25,193 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:25:25,834 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:32:34,943 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:32:35,618 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:35:21,002 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
-2022-11-11 12:35:21,712 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
+2022-11-11 15:51:11,714 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:51:26,520 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:51:28,607 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:52:37,224 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
+2022-11-11 15:52:37,878 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
+2022-11-11 15:52:48,433 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
