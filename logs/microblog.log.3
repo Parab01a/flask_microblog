@@ -1,0 +1,157 @@
+2022-11-11 15:46:56,488 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:31]
+2022-11-11 15:48:42,520 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:49:02,121 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:50:23,983 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:50:24,946 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:50:25,094 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
+2022-11-11 15:50:40,954 ERROR: Exception on /explore [GET] [in D:\python3.10\lib\site-packages\flask\app.py:1741]
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 854, in __getattr__
+    return getattr(self.comparator, key)
+AttributeError: 'Comparator' object has no attribute 'all'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python3.10\lib\site-packages\flask\app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "D:\python3.10\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "D:\Apythonproject\microblog\app\routes.py", line 31, in explore
+    posts = Posts.query.order_by(Posts.timestamp.desc().all())
+  File "D:\python3.10\lib\site-packages\sqlalchemy\sql\elements.py", line 856, in __getattr__
+    util.raise_(
+  File "D:\python3.10\lib\site-packages\sqlalchemy\util\compat.py", line 208, in raise_
+    raise exception
+AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an attribute 'all'
