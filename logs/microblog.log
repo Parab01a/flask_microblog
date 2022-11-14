@@ -125,3 +125,5 @@ AttributeError: Neither 'UnaryExpression' object nor 'Comparator' object has an 
 2022-11-11 21:00:05,412 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:34]
 2022-11-11 21:01:23,706 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:34]
 2022-11-11 21:01:24,365 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:34]
+2022-11-14 14:16:50,182 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:37]
+2022-11-14 14:16:52,113 INFO: Microblog startup [in D:\Apythonproject\microblog\app\__init__.py:37]
